@@ -89,3 +89,10 @@ https://<usuario>.github.io/<repo>/app_ventas/
 
 El archivo `exports/foto_stock.json` sera publico si el repo/GitHub Pages es publico.
 
+Las ventas no se suben a este repo publico. La app puede enviarlas al repo privado:
+
+```text
+quinteiromartin/orilla-ventas-inbox
+```
+
+Cada dispositivo que necesite enviar ventas debe tener configurado localmente un token de GitHub con permiso `Contents: Read and write` solo sobre ese repo privado.

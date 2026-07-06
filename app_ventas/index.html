@@ -347,8 +347,38 @@
         </div>
         <div id="pendingList"></div>
         <div class="actions" style="margin-top: 12px;">
+          <button id="sendGithubButton" class="accent" type="button">Enviar</button>
           <button id="exportButton" type="button">Exportar</button>
           <button id="clearButton" class="danger" type="button">Borrar exportadas</button>
+        </div>
+      </section>
+
+      <section>
+        <div class="line-main">
+          <h2>GitHub</h2>
+          <span id="githubStatus" class="pill warn">sin configurar</span>
+        </div>
+        <label>
+          Token
+          <input id="githubTokenInput" type="password" autocomplete="off" placeholder="Pegar token una vez">
+        </label>
+        <div class="grid2">
+          <label>
+            Repo
+            <input id="githubRepoInput" type="text" autocomplete="off" value="quinteiromartin/orilla-ventas-inbox">
+          </label>
+          <label>
+            Rama
+            <input id="githubBranchInput" type="text" autocomplete="off" value="main">
+          </label>
+        </div>
+        <label>
+          Carpeta
+          <input id="githubFolderInput" type="text" autocomplete="off" value="ventas">
+        </label>
+        <div class="actions">
+          <button id="saveGithubButton" class="secondary" type="button">Guardar configuración</button>
+          <button id="clearGithubButton" class="secondary" type="button">Quitar token</button>
         </div>
       </section>
     </main>
@@ -360,6 +390,7 @@
     const STOCK_URL = "../exports/foto_stock.json";
     const STOCK_KEY = "orilla.latestStock";
     const SALES_KEY = "orilla.pendingSales";
+    const GITHUB_KEY = "orilla.githubConfig";
 
     const state = {
       stock: null,
@@ -380,12 +411,20 @@
       notesInput: document.getElementById("notesInput"),
       saveSaleButton: document.getElementById("saveSaleButton"),
       refreshButton: document.getElementById("refreshButton"),
+      sendGithubButton: document.getElementById("sendGithubButton"),
       productCount: document.getElementById("productCount"),
       productList: document.getElementById("productList"),
       pendingAmount: document.getElementById("pendingAmount"),
       pendingList: document.getElementById("pendingList"),
       exportButton: document.getElementById("exportButton"),
       clearButton: document.getElementById("clearButton"),
+      githubStatus: document.getElementById("githubStatus"),
+      githubTokenInput: document.getElementById("githubTokenInput"),
+      githubRepoInput: document.getElementById("githubRepoInput"),
+      githubBranchInput: document.getElementById("githubBranchInput"),
+      githubFolderInput: document.getElementById("githubFolderInput"),
+      saveGithubButton: document.getElementById("saveGithubButton"),
+      clearGithubButton: document.getElementById("clearGithubButton"),
       toast: document.getElementById("toast")
     };
 
@@ -480,6 +519,7 @@
       els.pendingAmount.textContent = money(total);
       els.exportButton.disabled = count === 0;
       els.clearButton.disabled = count === 0;
+      els.sendGithubButton.disabled = count === 0;
 
       if (count === 0) {
         els.pendingList.innerHTML = '<p class="empty">No hay ventas pendientes.</p>';
@@ -581,12 +621,7 @@
 
     function exportSales() {
       if (state.pendingSales.length === 0) return;
-      const payload = {
-        version: 1,
-        exported_at: new Date().toISOString(),
-        source: "orilla_mobile_sales",
-        sales: state.pendingSales
-      };
+      const payload = buildSalesPayload();
       const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -598,6 +633,134 @@
       a.remove();
       URL.revokeObjectURL(url);
       showToast("Archivo generado");
+    }
+
+    function buildSalesPayload() {
+      return {
+        version: 1,
+        exported_at: new Date().toISOString(),
+        source: "orilla_mobile_sales",
+        sales: state.pendingSales
+      };
+    }
+
+    function readGithubConfig() {
+      return readJson(GITHUB_KEY, {
+        token: "",
+        repo: "quinteiromartin/orilla-ventas-inbox",
+        branch: "main",
+        folder: "ventas"
+      });
+    }
+
+    function writeGithubConfig(config) {
+      writeJson(GITHUB_KEY, config);
+    }
+
+    function loadGithubForm() {
+      const config = readGithubConfig();
+      els.githubTokenInput.value = config.token || "";
+      els.githubRepoInput.value = config.repo || "quinteiromartin/orilla-ventas-inbox";
+      els.githubBranchInput.value = config.branch || "main";
+      els.githubFolderInput.value = config.folder || "ventas";
+      renderGithubStatus();
+    }
+
+    function currentGithubForm() {
+      return {
+        token: els.githubTokenInput.value.trim(),
+        repo: els.githubRepoInput.value.trim(),
+        branch: els.githubBranchInput.value.trim() || "main",
+        folder: els.githubFolderInput.value.trim().replace(/^\/+|\/+$/g, "") || "ventas"
+      };
+    }
+
+    function renderGithubStatus() {
+      const config = readGithubConfig();
+      if (config.token && config.repo) {
+        els.githubStatus.textContent = "configurado";
+        els.githubStatus.className = "pill ok";
+      } else {
+        els.githubStatus.textContent = "sin configurar";
+        els.githubStatus.className = "pill warn";
+      }
+    }
+
+    function saveGithubConfig() {
+      const config = currentGithubForm();
+      if (!config.token || !config.repo) {
+        showToast("Completar token y repo");
+        return;
+      }
+      writeGithubConfig(config);
+      renderGithubStatus();
+      showToast("GitHub configurado");
+    }
+
+    function clearGithubConfig() {
+      const ok = window.confirm("Quitar token de este dispositivo?");
+      if (!ok) return;
+      writeGithubConfig({
+        token: "",
+        repo: els.githubRepoInput.value.trim() || "quinteiromartin/orilla-ventas-inbox",
+        branch: els.githubBranchInput.value.trim() || "main",
+        folder: els.githubFolderInput.value.trim() || "ventas"
+      });
+      loadGithubForm();
+      showToast("Token quitado");
+    }
+
+    function utf8ToBase64(value) {
+      const bytes = new TextEncoder().encode(value);
+      let binary = "";
+      for (const byte of bytes) {
+        binary += String.fromCharCode(byte);
+      }
+      return btoa(binary);
+    }
+
+    async function sendSalesToGithub() {
+      if (state.pendingSales.length === 0) return;
+      const config = readGithubConfig();
+      if (!config.token || !config.repo) {
+        showToast("Configurar GitHub primero");
+        return;
+      }
+
+      els.sendGithubButton.disabled = true;
+      els.sendGithubButton.textContent = "Enviando...";
+      try {
+        const payload = buildSalesPayload();
+        const stamp = new Date().toISOString().slice(0, 19).replace(/[-:T]/g, "");
+        const random = crypto.randomUUID ? crypto.randomUUID().slice(0, 8) : String(Date.now()).slice(-8);
+        const path = `${config.folder || "ventas"}/ventas_orilla_${stamp}_${random}.json`;
+        const url = `https://api.github.com/repos/${config.repo}/contents/${encodeURIComponent(path).replaceAll("%2F", "/")}`;
+        const response = await fetch(url, {
+          method: "PUT",
+          headers: {
+            "Accept": "application/vnd.github+json",
+            "Authorization": `Bearer ${config.token}`,
+            "X-GitHub-Api-Version": "2022-11-28",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            message: `Agregar ventas mobile ${stamp}`,
+            content: utf8ToBase64(JSON.stringify(payload, null, 2)),
+            branch: config.branch || "main"
+          })
+        });
+
+        if (!response.ok) {
+          const details = await response.json().catch(() => ({}));
+          throw new Error(details.message || `GitHub HTTP ${response.status}`);
+        }
+        showToast("Ventas enviadas a GitHub");
+      } catch (error) {
+        showToast(`No se pudo enviar: ${error.message}`);
+      } finally {
+        els.sendGithubButton.textContent = "Enviar";
+        renderPendingSales();
+      }
     }
 
     function clearSales() {
@@ -622,6 +785,7 @@
     function boot() {
       state.stock = readJson(STOCK_KEY, { version: 1, generado_en: null, productos: [] });
       state.pendingSales = readJson(SALES_KEY, []);
+      loadGithubForm();
       renderStockStatus();
       renderProducts();
       renderPendingSales();
@@ -632,11 +796,13 @@
     els.productSelect.addEventListener("change", syncPriceFromProduct);
     els.saveSaleButton.addEventListener("click", saveSale);
     els.refreshButton.addEventListener("click", () => refreshStock(false));
+    els.sendGithubButton.addEventListener("click", sendSalesToGithub);
     els.exportButton.addEventListener("click", exportSales);
     els.clearButton.addEventListener("click", clearSales);
+    els.saveGithubButton.addEventListener("click", saveGithubConfig);
+    els.clearGithubButton.addEventListener("click", clearGithubConfig);
 
     boot();
   </script>
 </body>
 </html>
-

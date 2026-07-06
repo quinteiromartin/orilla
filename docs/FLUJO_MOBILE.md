@@ -10,6 +10,7 @@ La app:
 - Guarda solamente el ultimo catalogo descargado.
 - Guarda ventas pendientes aparte.
 - Permite exportar ventas a JSON para revision/importacion posterior.
+- Permite enviar ventas a un repo privado de GitHub si el dispositivo tiene token configurado.
 
 ## Archivos publicados
 
@@ -71,9 +72,43 @@ ventas_orilla_YYYYMMDDHHMMSS.json
 
 Ese archivo se revisa e importa despues a DuckDB.
 
+## Envio a GitHub
+
+La app puede subir las ventas pendientes a:
+
+```text
+quinteiromartin/orilla-ventas-inbox
+```
+
+Ese repo debe ser privado.
+
+La configuracion se guarda solo en el navegador/dispositivo:
+
+- Token de GitHub.
+- Repo destino.
+- Rama.
+- Carpeta destino.
+
+El token no se guarda en el codigo y no se sube al repo publico.
+
+Flujo:
+
+```text
+Guardar venta
+  -> queda pendiente en el telefono
+Enviar
+  -> sube un JSON a GitHub
+  -> si falla, no borra nada
+  -> si funciona, muestra confirmacion
+```
+
+La app no borra automaticamente despues de enviar. Primero hay que confirmar que la venta llego bien y fue importada.
+
 ## Regla operativa
 
 Despues de exportar y confirmar que el archivo llego bien a la computadora, se pueden borrar las ventas pendientes del telefono.
+
+Despues de enviar a GitHub y confirmar que fue importado en DuckDB, tambien se pueden borrar las ventas pendientes del telefono.
 
 ## Importacion a DuckDB
 

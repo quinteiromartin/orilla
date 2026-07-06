@@ -35,11 +35,23 @@ def main() -> None:
             """
         ).fetchall()
         columns = [desc[0] for desc in con.description]
+        imported_mobile_sales = [
+            row[0]
+            for row in con.execute(
+                """
+                SELECT mobile_sale_uid
+                FROM sales
+                WHERE mobile_sale_uid IS NOT NULL
+                ORDER BY sale_date, mobile_sale_uid
+                """
+            ).fetchall()
+        ]
 
     productos = [dict(zip(columns, row)) for row in rows]
     payload = {
         "version": 1,
         "generado_en": datetime.now(ZoneInfo("America/Argentina/Buenos_Aires")).isoformat(timespec="seconds"),
+        "ventas_mobile_importadas": imported_mobile_sales,
         "productos": productos,
     }
 

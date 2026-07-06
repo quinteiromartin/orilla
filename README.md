@@ -120,11 +120,13 @@ El importador:
 - Inserta venta, linea, pago, movimiento de stock, movimiento de caja y asignacion FIFO.
 - Evita duplicar ventas ya importadas usando `mobile_sale_uid`.
 
-La app tambien puede enviar ventas a GitHub si el dispositivo tiene configurado un token local. El destino previsto es el repo privado:
+La app envia ventas a GitHub al finalizar una compra si el dispositivo tiene configurado un token local. El destino previsto es el repo privado:
 
 ```text
 quinteiromartin/orilla-ventas-inbox
 ```
+
+El flujo principal de la app es carrito -> finalizar compra -> envio a GitHub. La exportacion manual queda solo como respaldo tecnico.
 
 ## Compras interactivas en Spyder
 

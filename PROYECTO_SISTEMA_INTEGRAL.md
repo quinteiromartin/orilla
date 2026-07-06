@@ -906,6 +906,16 @@ El importador de ventas mobile:
 - Calcula costo FIFO y margen antes de importar.
 - Registra venta, linea, pago, movimiento de stock, movimiento de caja y asignacion FIFO.
 - Evita duplicar ventas usando `mobile_sale_uid`.
+- Soporta ventas con multiples items.
+
+La app de ventas:
+
+- Usa un carrito antes de finalizar la compra.
+- Descuenta stock local al agregar una prenda al carrito.
+- Finaliza compra con `mobile_sale_uid` unico.
+- Envia automaticamente a GitHub.
+- Mantiene ventas no enviadas para reintento.
+- Mantiene ventas enviadas recientes hasta que `foto_stock.json` informe que DuckDB ya las incorporo.
 
 Prueba realizada:
 

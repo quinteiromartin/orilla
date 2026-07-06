@@ -8,9 +8,12 @@ La app:
 
 - Descarga automaticamente la ultima foto de stock al abrir.
 - Guarda solamente el ultimo catalogo descargado.
-- Guarda ventas pendientes aparte.
-- Permite exportar ventas a JSON para revision/importacion posterior.
-- Permite enviar ventas a un repo privado de GitHub si el dispositivo tiene token configurado.
+- Maneja un carrito local antes de cerrar la venta.
+- Descuenta stock local apenas se agrega una prenda al carrito.
+- Intenta enviar a GitHub al finalizar una compra.
+- Mantiene ventas no enviadas si falla el envio.
+- Mantiene ventas enviadas recientes hasta que DuckDB las incorpore.
+- Permite exportar ventas locales como respaldo tecnico.
 
 ## Archivos publicados
 
@@ -58,19 +61,23 @@ Si la descarga falla:
 
 - Usa el ultimo catalogo guardado en el telefono.
 
-## Ventas pendientes
+## Stock disponible local
 
-Las ventas se guardan en el telefono hasta exportarlas.
+Jose ve cantidad disponible, no stock bruto.
 
-Actualizar stock no borra ventas pendientes.
-
-El boton `Exportar` genera un archivo:
+La disponibilidad local se calcula asi:
 
 ```text
-ventas_orilla_YYYYMMDDHHMMSS.json
+disponible local =
+  stock oficial de DuckDB
+  - carrito actual
+  - ventas no enviadas
+  - ventas enviadas recientes aun no incorporadas a DuckDB
 ```
 
-Ese archivo se revisa e importa despues a DuckDB.
+Cuando una prenda entra al carrito, baja la disponibilidad local.
+
+Cuando se quita del carrito, vuelve a estar disponible.
 
 ## Envio a GitHub
 
@@ -91,24 +98,44 @@ La configuracion se guarda solo en el navegador/dispositivo:
 
 El token no se guarda en el codigo y no se sube al repo publico.
 
-Flujo:
+Flujo principal:
 
 ```text
-Guardar venta
-  -> queda pendiente en el telefono
-Enviar
+Agregar al carrito
+  -> baja disponible local
+Finalizar compra
+  -> crea mobile_sale_uid unico
   -> sube un JSON a GitHub
   -> si falla, no borra nada
-  -> si funciona, muestra confirmacion
+  -> si funciona, queda en enviadas recientes
 ```
 
-La app no borra automaticamente despues de enviar. Primero hay que confirmar que la venta llego bien y fue importada.
+La app no borra automaticamente las ventas enviadas recientes. Las limpia cuando una nueva `foto_stock.json` informa que DuckDB ya incorporo esos `mobile_sale_uid`.
+
+## Reconciliacion con DuckDB
+
+`foto_stock.json` incluye:
+
+```json
+{
+  "ventas_mobile_importadas": ["..."]
+}
+```
+
+Cuando la app actualiza stock:
+
+- descarga la foto oficial nueva
+- identifica ventas enviadas recientes que ya estan importadas
+- las elimina del descuento local
+- recalcula disponibilidad
 
 ## Regla operativa
 
-Despues de exportar y confirmar que el archivo llego bien a la computadora, se pueden borrar las ventas pendientes del telefono.
+## Respaldo tecnico
 
-Despues de enviar a GitHub y confirmar que fue importado en DuckDB, tambien se pueden borrar las ventas pendientes del telefono.
+El link `Respaldo tecnico: exportar ventas locales` no es el flujo principal.
+
+Sirve solo si GitHub falla o si hace falta rescatar ventas desde el dispositivo.
 
 ## Importacion a DuckDB
 

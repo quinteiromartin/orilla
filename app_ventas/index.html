@@ -14,7 +14,6 @@
       --muted: #65717d;
       --line: #d8d1c7;
       --accent: #c85f3d;
-      --accent-dark: #92462e;
       --ok: #18735b;
       --warn: #9a5b00;
       --danger: #a63a3a;
@@ -23,9 +22,7 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -33,15 +30,10 @@
       color: var(--ink);
     }
 
-    button,
-    input,
-    select,
-    textarea {
-      font: inherit;
-    }
+    button, input, select, textarea { font: inherit; }
 
     .app {
-      max-width: 720px;
+      max-width: 760px;
       min-height: 100vh;
       margin: 0 auto;
       display: flex;
@@ -58,17 +50,24 @@
       backdrop-filter: blur(12px);
     }
 
-    .topbar {
+    .topbar, .line-main {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
     }
 
     h1 {
       margin: 0;
       font-size: 22px;
       line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 17px;
+      line-height: 1.2;
       letter-spacing: 0;
     }
 
@@ -94,13 +93,6 @@
       padding: 14px;
     }
 
-    h2 {
-      margin: 0 0 12px;
-      font-size: 17px;
-      line-height: 1.2;
-      letter-spacing: 0;
-    }
-
     label {
       display: grid;
       gap: 6px;
@@ -110,9 +102,7 @@
       font-weight: 650;
     }
 
-    input,
-    select,
-    textarea {
+    input, select, textarea {
       width: 100%;
       min-height: 44px;
       border: 1px solid var(--line);
@@ -124,7 +114,7 @@
     }
 
     textarea {
-      min-height: 76px;
+      min-height: 68px;
       resize: vertical;
     }
 
@@ -140,9 +130,7 @@
       align-items: center;
     }
 
-    .actions button {
-      flex: 1;
-    }
+    .actions button { flex: 1; }
 
     button {
       min-height: 44px;
@@ -160,12 +148,16 @@
       color: var(--ink);
     }
 
-    button.accent {
-      background: var(--accent);
-    }
+    button.accent { background: var(--accent); }
+    button.danger { background: var(--danger); }
 
-    button.danger {
-      background: var(--danger);
+    button.linkish {
+      min-height: auto;
+      padding: 4px 0;
+      background: transparent;
+      color: var(--muted);
+      text-decoration: underline;
+      font-weight: 650;
     }
 
     button:disabled {
@@ -186,18 +178,11 @@
       white-space: nowrap;
     }
 
-    .pill.ok {
-      background: #dceee8;
-      color: var(--ok);
-    }
+    .pill.ok { background: #dceee8; color: var(--ok); }
+    .pill.warn { background: #fff0cf; color: var(--warn); }
+    .pill.danger { background: #f6dddd; color: var(--danger); }
 
-    .pill.warn {
-      background: #fff0cf;
-      color: var(--warn);
-    }
-
-    .product-line,
-    .pending-line {
+    .line {
       display: grid;
       gap: 5px;
       padding: 10px 0;
@@ -205,32 +190,27 @@
       font-size: 14px;
     }
 
-    .product-line:first-child,
-    .pending-line:first-child {
+    .line:first-child {
       border-top: 0;
       padding-top: 0;
     }
 
-    .line-main {
+    .line-title { font-weight: 750; }
+    .line-meta { color: var(--muted); font-size: 13px; }
+    .empty { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .mini-actions {
       display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 10px;
+      gap: 8px;
+      justify-content: flex-end;
+      flex-wrap: wrap;
     }
 
-    .line-title {
-      font-weight: 750;
-    }
-
-    .line-meta {
-      color: var(--muted);
+    .mini-actions button {
+      min-height: 34px;
+      flex: 0 0 auto;
+      padding: 7px 9px;
       font-size: 13px;
-    }
-
-    .empty {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
     }
 
     .toast {
@@ -239,7 +219,7 @@
       right: 16px;
       bottom: 16px;
       z-index: 20;
-      max-width: 688px;
+      max-width: 728px;
       margin: 0 auto;
       padding: 12px 14px;
       border-radius: 8px;
@@ -257,18 +237,10 @@
       opacity: 1;
     }
 
-    @media (max-width: 520px) {
-      .grid2 {
-        grid-template-columns: 1fr;
-      }
-
-      .actions {
-        flex-direction: column;
-      }
-
-      .actions button {
-        width: 100%;
-      }
+    @media (max-width: 560px) {
+      .grid2 { grid-template-columns: 1fr; }
+      .actions { flex-direction: column; }
+      .actions button { width: 100%; }
     }
   </style>
 </head>
@@ -277,7 +249,7 @@
     <header>
       <div class="topbar">
         <h1>Orilla Ventas</h1>
-        <span id="pendingPill" class="pill">0 pendientes</span>
+        <span id="cartPill" class="pill">Carrito vacío</span>
       </div>
       <div class="status">
         <span id="stockStatus">Stock: sin descargar</span>
@@ -287,9 +259,9 @@
 
     <main>
       <section>
-        <h2>Nueva venta</h2>
+        <h2>Agregar prenda</h2>
         <label>
-          Buscar producto
+          Buscar
           <input id="searchInput" type="search" autocomplete="off" placeholder="Nombre, color, talle o SKU">
         </label>
         <label>
@@ -306,11 +278,19 @@
             <input id="priceInput" type="number" min="0" step="0.01" inputmode="decimal">
           </label>
         </div>
-        <div class="grid2">
-          <label>
-            Descuento
-            <input id="discountInput" type="number" min="0" step="0.01" inputmode="decimal" value="0">
-          </label>
+        <div class="actions">
+          <button id="addCartButton" class="accent" type="button">Agregar al carrito</button>
+          <button id="refreshButton" class="secondary" type="button">Actualizar stock</button>
+        </div>
+      </section>
+
+      <section>
+        <div class="line-main">
+          <h2>Carrito</h2>
+          <span id="cartAmount" class="pill">$0</span>
+        </div>
+        <div id="cartList"></div>
+        <div class="grid2" style="margin-top: 12px;">
           <label>
             Medio de cobro
             <select id="paymentSelect">
@@ -321,20 +301,24 @@
               <option>Otro</option>
             </select>
           </label>
+          <label>
+            Descuento total
+            <input id="saleDiscountInput" type="number" min="0" step="0.01" inputmode="decimal" value="0">
+          </label>
         </div>
         <label>
           Nota
           <textarea id="notesInput" placeholder="Opcional"></textarea>
         </label>
         <div class="actions">
-          <button id="saveSaleButton" class="accent" type="button">Guardar venta</button>
-          <button id="refreshButton" class="secondary" type="button">Actualizar stock</button>
+          <button id="finalizeButton" class="accent" type="button">Finalizar compra</button>
+          <button id="clearCartButton" class="secondary" type="button">Vaciar carrito</button>
         </div>
       </section>
 
       <section>
         <div class="line-main">
-          <h2>Productos disponibles</h2>
+          <h2>Stock disponible</h2>
           <span id="productCount" class="pill ok">0</span>
         </div>
         <div id="productList"></div>
@@ -342,15 +326,21 @@
 
       <section>
         <div class="line-main">
-          <h2>Ventas pendientes</h2>
-          <span id="pendingAmount" class="pill">$0</span>
+          <h2>No enviadas</h2>
+          <span id="unsentPill" class="pill warn">0</span>
         </div>
-        <div id="pendingList"></div>
+        <div id="unsentList"></div>
         <div class="actions" style="margin-top: 12px;">
-          <button id="sendGithubButton" class="accent" type="button">Enviar</button>
-          <button id="exportButton" type="button">Exportar</button>
-          <button id="clearButton" class="danger" type="button">Borrar exportadas</button>
+          <button id="retryUnsentButton" type="button">Reintentar envío</button>
         </div>
+      </section>
+
+      <section>
+        <div class="line-main">
+          <h2>Enviadas recientes</h2>
+          <span id="sentPill" class="pill ok">0</span>
+        </div>
+        <div id="sentList"></div>
       </section>
 
       <section>
@@ -381,6 +371,10 @@
           <button id="clearGithubButton" class="secondary" type="button">Quitar token</button>
         </div>
       </section>
+
+      <section>
+        <button id="exportBackupButton" class="linkish" type="button">Respaldo técnico: exportar ventas locales</button>
+      </section>
     </main>
   </div>
 
@@ -389,35 +383,44 @@
   <script>
     const STOCK_URL = "../exports/foto_stock.json";
     const STOCK_KEY = "orilla.latestStock";
-    const SALES_KEY = "orilla.pendingSales";
+    const CART_KEY = "orilla.cart";
+    const UNSENT_KEY = "orilla.unsentSales";
+    const SENT_KEY = "orilla.sentSales";
     const GITHUB_KEY = "orilla.githubConfig";
+    const LEGACY_SALES_KEY = "orilla.pendingSales";
 
     const state = {
-      stock: null,
+      stock: { version: 1, generado_en: null, ventas_mobile_importadas: [], productos: [] },
       filteredProducts: [],
-      pendingSales: []
+      cart: [],
+      unsentSales: [],
+      sentSales: []
     };
 
     const els = {
       stockStatus: document.getElementById("stockStatus"),
       syncStatus: document.getElementById("syncStatus"),
-      pendingPill: document.getElementById("pendingPill"),
+      cartPill: document.getElementById("cartPill"),
       searchInput: document.getElementById("searchInput"),
       productSelect: document.getElementById("productSelect"),
       quantityInput: document.getElementById("quantityInput"),
       priceInput: document.getElementById("priceInput"),
-      discountInput: document.getElementById("discountInput"),
-      paymentSelect: document.getElementById("paymentSelect"),
-      notesInput: document.getElementById("notesInput"),
-      saveSaleButton: document.getElementById("saveSaleButton"),
+      addCartButton: document.getElementById("addCartButton"),
       refreshButton: document.getElementById("refreshButton"),
-      sendGithubButton: document.getElementById("sendGithubButton"),
+      cartAmount: document.getElementById("cartAmount"),
+      cartList: document.getElementById("cartList"),
+      paymentSelect: document.getElementById("paymentSelect"),
+      saleDiscountInput: document.getElementById("saleDiscountInput"),
+      notesInput: document.getElementById("notesInput"),
+      finalizeButton: document.getElementById("finalizeButton"),
+      clearCartButton: document.getElementById("clearCartButton"),
       productCount: document.getElementById("productCount"),
       productList: document.getElementById("productList"),
-      pendingAmount: document.getElementById("pendingAmount"),
-      pendingList: document.getElementById("pendingList"),
-      exportButton: document.getElementById("exportButton"),
-      clearButton: document.getElementById("clearButton"),
+      unsentPill: document.getElementById("unsentPill"),
+      unsentList: document.getElementById("unsentList"),
+      retryUnsentButton: document.getElementById("retryUnsentButton"),
+      sentPill: document.getElementById("sentPill"),
+      sentList: document.getElementById("sentList"),
       githubStatus: document.getElementById("githubStatus"),
       githubTokenInput: document.getElementById("githubTokenInput"),
       githubRepoInput: document.getElementById("githubRepoInput"),
@@ -425,6 +428,7 @@
       githubFolderInput: document.getElementById("githubFolderInput"),
       saveGithubButton: document.getElementById("saveGithubButton"),
       clearGithubButton: document.getElementById("clearGithubButton"),
+      exportBackupButton: document.getElementById("exportBackupButton"),
       toast: document.getElementById("toast")
     };
 
@@ -440,7 +444,7 @@
       els.toast.textContent = message;
       els.toast.classList.add("show");
       window.clearTimeout(showToast.timer);
-      showToast.timer = window.setTimeout(() => els.toast.classList.remove("show"), 2600);
+      showToast.timer = window.setTimeout(() => els.toast.classList.remove("show"), 2800);
     }
 
     function readJson(key, fallback) {
@@ -456,85 +460,82 @@
       localStorage.setItem(key, JSON.stringify(value));
     }
 
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
     function productLabel(product) {
-      const bits = [product.producto, product.color, product.talle].filter(Boolean);
-      return `${bits.join(" / ")} (${product.sku})`;
+      return [product.producto, product.color, product.talle].filter(Boolean).join(" / ") + ` (${product.sku})`;
+    }
+
+    function allProducts() {
+      return state.stock?.productos || [];
     }
 
     function selectedProduct() {
       const sku = els.productSelect.value;
       return state.filteredProducts.find((product) => product.sku === sku)
-        || (state.stock?.productos || []).find((product) => product.sku === sku);
+        || allProducts().find((product) => product.sku === sku);
     }
 
-    function renderProducts() {
-      const products = state.stock?.productos || [];
-      const query = els.searchInput.value.trim().toLowerCase();
-      state.filteredProducts = products.filter((product) => {
-        const haystack = [
-          product.sku,
-          product.producto,
-          product.color,
-          product.talle
-        ].filter(Boolean).join(" ").toLowerCase();
-        return !query || haystack.includes(query);
-      });
-
-      els.productSelect.innerHTML = "";
-      for (const product of state.filteredProducts) {
-        const option = document.createElement("option");
-        option.value = product.sku;
-        option.textContent = productLabel(product);
-        els.productSelect.append(option);
-      }
-
-      const enabled = state.filteredProducts.length > 0;
-      els.saveSaleButton.disabled = !enabled;
-      els.productSelect.disabled = !enabled;
-      els.productCount.textContent = `${products.length} activos`;
-
-      if (!enabled) {
-        els.productList.innerHTML = '<p class="empty">Sin productos disponibles.</p>';
-        els.priceInput.value = "";
-        return;
-      }
-
-      syncPriceFromProduct();
-
-      els.productList.innerHTML = state.filteredProducts.slice(0, 12).map((product) => `
-        <div class="product-line">
-          <div class="line-main">
-            <span class="line-title">${escapeHtml(productLabel(product))}</span>
-            <span class="pill ok">${Number(product.stock_disponible || 0)}</span>
-          </div>
-          <span class="line-meta">${money(product.precio_sugerido)} sugerido</span>
-        </div>
-      `).join("");
+    function saleItems(sale) {
+      if (Array.isArray(sale.items)) return sale.items;
+      return [{
+        sku: sale.sku,
+        product_label: sale.product_label,
+        quantity: Number(sale.quantity || 0),
+        unit_price: Number(sale.unit_price || 0),
+        discount_amount: Number(sale.discount_amount || 0),
+        line_total: Number(sale.net_amount || sale.line_total || 0)
+      }];
     }
 
-    function renderPendingSales() {
-      const count = state.pendingSales.length;
-      const total = state.pendingSales.reduce((sum, sale) => sum + Number(sale.net_amount || 0), 0);
-      els.pendingPill.textContent = `${count} pendientes`;
-      els.pendingAmount.textContent = money(total);
-      els.exportButton.disabled = count === 0;
-      els.clearButton.disabled = count === 0;
-      els.sendGithubButton.disabled = count === 0;
-
-      if (count === 0) {
-        els.pendingList.innerHTML = '<p class="empty">No hay ventas pendientes.</p>';
-        return;
+    function quantitiesFromItems(items) {
+      const map = {};
+      for (const item of items) {
+        map[item.sku] = (map[item.sku] || 0) + Number(item.quantity || 0);
       }
+      return map;
+    }
 
-      els.pendingList.innerHTML = state.pendingSales.slice().reverse().map((sale) => `
-        <div class="pending-line">
-          <div class="line-main">
-            <span class="line-title">${escapeHtml(sale.product_label)}</span>
-            <span class="pill">${money(sale.net_amount)}</span>
-          </div>
-          <span class="line-meta">${new Date(sale.sale_at).toLocaleString("es-AR")} · ${escapeHtml(sale.payment_method)} · ${sale.quantity} u.</span>
-        </div>
-      `).join("");
+    function subtractQuantities(target, source) {
+      for (const [sku, qty] of Object.entries(source)) {
+        target[sku] = (target[sku] || 0) - qty;
+      }
+    }
+
+    function reservedQuantities() {
+      const reserved = {};
+      subtractQuantities(reserved, quantitiesFromItems(state.cart));
+      for (const sale of state.unsentSales) {
+        subtractQuantities(reserved, quantitiesFromItems(saleItems(sale)));
+      }
+      for (const sale of state.sentSales) {
+        subtractQuantities(reserved, quantitiesFromItems(saleItems(sale)));
+      }
+      return reserved;
+    }
+
+    function availableForSku(sku) {
+      const product = allProducts().find((entry) => entry.sku === sku);
+      const official = Number(product?.stock_disponible || 0);
+      const reserved = reservedQuantities()[sku] || 0;
+      return Math.max(0, official + reserved);
+    }
+
+    function reconcileImportedSales() {
+      const imported = new Set(state.stock?.ventas_mobile_importadas || []);
+      if (!imported.size) return;
+      const before = state.sentSales.length;
+      state.sentSales = state.sentSales.filter((sale) => !imported.has(sale.mobile_sale_uid));
+      if (state.sentSales.length !== before) {
+        writeJson(SENT_KEY, state.sentSales);
+      }
     }
 
     function renderStockStatus() {
@@ -548,11 +549,261 @@
       els.stockStatus.textContent = `Stock actualizado: ${formatted}`;
     }
 
+    function renderProducts() {
+      const products = allProducts();
+      const query = els.searchInput.value.trim().toLowerCase();
+      state.filteredProducts = products.filter((product) => {
+        const available = availableForSku(product.sku);
+        const haystack = [product.sku, product.producto, product.color, product.talle]
+          .filter(Boolean).join(" ").toLowerCase();
+        return available > 0 && (!query || haystack.includes(query));
+      });
+
+      els.productSelect.innerHTML = "";
+      for (const product of state.filteredProducts) {
+        const option = document.createElement("option");
+        option.value = product.sku;
+        option.textContent = `${productLabel(product)} - disp. ${availableForSku(product.sku)}`;
+        els.productSelect.append(option);
+      }
+
+      const enabled = state.filteredProducts.length > 0;
+      els.addCartButton.disabled = !enabled;
+      els.productSelect.disabled = !enabled;
+      els.productCount.textContent = `${state.filteredProducts.length} disponibles`;
+
+      if (!enabled) {
+        els.productList.innerHTML = '<p class="empty">Sin productos disponibles.</p>';
+        els.priceInput.value = "";
+        return;
+      }
+
+      syncPriceFromProduct();
+      els.productList.innerHTML = state.filteredProducts.slice(0, 14).map((product) => `
+        <div class="line">
+          <div class="line-main">
+            <span class="line-title">${escapeHtml(productLabel(product))}</span>
+            <span class="pill ok">${availableForSku(product.sku)}</span>
+          </div>
+          <span class="line-meta">${money(product.precio_sugerido)} sugerido</span>
+        </div>
+      `).join("");
+    }
+
     function syncPriceFromProduct() {
       const product = selectedProduct();
       if (!product) return;
       els.priceInput.value = Number(product.precio_sugerido || 0);
-      els.quantityInput.max = Math.max(1, Number(product.stock_disponible || 1));
+      els.quantityInput.max = Math.max(1, availableForSku(product.sku));
+    }
+
+    function renderCart() {
+      const total = state.cart.reduce((sum, item) => sum + Number(item.line_total || 0), 0);
+      els.cartPill.textContent = state.cart.length ? `${state.cart.length} en carrito` : "Carrito vacío";
+      els.cartAmount.textContent = money(total - Number(els.saleDiscountInput.value || 0));
+      els.finalizeButton.disabled = state.cart.length === 0;
+      els.clearCartButton.disabled = state.cart.length === 0;
+
+      if (!state.cart.length) {
+        els.cartList.innerHTML = '<p class="empty">Todavía no hay prendas en el carrito.</p>';
+        return;
+      }
+
+      els.cartList.innerHTML = state.cart.map((item, index) => `
+        <div class="line">
+          <div class="line-main">
+            <span class="line-title">${escapeHtml(item.product_label)}</span>
+            <span class="pill">${money(item.line_total)}</span>
+          </div>
+          <span class="line-meta">${item.quantity} u. · ${money(item.unit_price)} c/u</span>
+          <div class="mini-actions">
+            <button class="secondary" type="button" data-cart-remove="${index}">Quitar</button>
+          </div>
+        </div>
+      `).join("");
+
+      for (const button of els.cartList.querySelectorAll("[data-cart-remove]")) {
+        button.addEventListener("click", () => removeCartItem(Number(button.dataset.cartRemove)));
+      }
+    }
+
+    function renderSalesLists() {
+      els.unsentPill.textContent = String(state.unsentSales.length);
+      els.sentPill.textContent = String(state.sentSales.length);
+      els.retryUnsentButton.disabled = state.unsentSales.length === 0;
+
+      els.unsentList.innerHTML = state.unsentSales.length
+        ? state.unsentSales.map((sale, index) => saleHtml(sale, index, true)).join("")
+        : '<p class="empty">No hay ventas sin enviar.</p>';
+
+      els.sentList.innerHTML = state.sentSales.length
+        ? state.sentSales.map((sale) => saleHtml(sale, null, false)).join("")
+        : '<p class="empty">No hay ventas enviadas esperando actualización de DuckDB.</p>';
+
+      for (const button of els.unsentList.querySelectorAll("[data-unsent-remove]")) {
+        button.addEventListener("click", () => removeUnsentSale(Number(button.dataset.unsentRemove)));
+      }
+    }
+
+    function saleHtml(sale, index, removable) {
+      const items = saleItems(sale);
+      const itemText = items.map((item) => `${item.quantity} x ${item.product_label}`).join(" · ");
+      const actions = removable
+        ? `<div class="mini-actions"><button class="secondary" type="button" data-unsent-remove="${index}">Eliminar</button></div>`
+        : "";
+      return `
+        <div class="line">
+          <div class="line-main">
+            <span class="line-title">${money(sale.net_amount)}</span>
+            <span class="pill">${escapeHtml(sale.payment_method)}</span>
+          </div>
+          <span class="line-meta">${escapeHtml(itemText)}</span>
+          <span class="line-meta">${new Date(sale.sale_at).toLocaleString("es-AR")} · ${escapeHtml(sale.mobile_sale_uid)}</span>
+          ${actions}
+        </div>
+      `;
+    }
+
+    function renderGithubStatus() {
+      const config = readGithubConfig();
+      if (config.token && config.repo) {
+        els.githubStatus.textContent = "configurado";
+        els.githubStatus.className = "pill ok";
+      } else {
+        els.githubStatus.textContent = "sin configurar";
+        els.githubStatus.className = "pill warn";
+      }
+    }
+
+    function renderAll() {
+      reconcileImportedSales();
+      renderStockStatus();
+      renderProducts();
+      renderCart();
+      renderSalesLists();
+      renderGithubStatus();
+    }
+
+    function addToCart() {
+      const product = selectedProduct();
+      if (!product) return;
+      const quantity = Math.max(1, Number.parseInt(els.quantityInput.value || "1", 10));
+      const unitPrice = Math.max(0, Number(els.priceInput.value || 0));
+      const available = availableForSku(product.sku);
+      if (quantity > available) {
+        showToast(`Disponible: ${available}`);
+        return;
+      }
+
+      const existing = state.cart.find((item) => item.sku === product.sku && Number(item.unit_price) === unitPrice);
+      if (existing) {
+        existing.quantity += quantity;
+        existing.line_total = existing.quantity * Number(existing.unit_price);
+      } else {
+        state.cart.push({
+          sku: product.sku,
+          product_label: productLabel(product),
+          quantity,
+          unit_price: unitPrice,
+          discount_amount: 0,
+          line_total: quantity * unitPrice
+        });
+      }
+      writeJson(CART_KEY, state.cart);
+      els.quantityInput.value = "1";
+      showToast("Agregado al carrito");
+      renderAll();
+    }
+
+    function removeCartItem(index) {
+      state.cart.splice(index, 1);
+      writeJson(CART_KEY, state.cart);
+      renderAll();
+    }
+
+    function clearCart() {
+      if (!state.cart.length) return;
+      if (!window.confirm("Vaciar carrito?")) return;
+      state.cart = [];
+      writeJson(CART_KEY, state.cart);
+      renderAll();
+    }
+
+    function buildSaleFromCart() {
+      const gross = state.cart.reduce((sum, item) => sum + Number(item.line_total || 0), 0);
+      const discount = Math.max(0, Number(els.saleDiscountInput.value || 0));
+      if (discount > gross) {
+        throw new Error("El descuento supera el total");
+      }
+      return {
+        mobile_sale_uid: crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`,
+        sale_at: new Date().toISOString(),
+        payment_method: els.paymentSelect.value,
+        notes: els.notesInput.value.trim(),
+        gross_amount: gross,
+        discount_amount: discount,
+        net_amount: gross - discount,
+        stock_snapshot_generated_at: state.stock?.generado_en || null,
+        items: state.cart.map((item) => ({ ...item }))
+      };
+    }
+
+    async function finalizeSale() {
+      if (!state.cart.length) return;
+      let sale;
+      try {
+        sale = buildSaleFromCart();
+      } catch (error) {
+        showToast(error.message);
+        return;
+      }
+
+      els.finalizeButton.disabled = true;
+      els.finalizeButton.textContent = "Finalizando...";
+      try {
+        await uploadSalesToGithub([sale]);
+        state.sentSales.push(sale);
+        showToast("Compra enviada");
+      } catch (error) {
+        state.unsentSales.push(sale);
+        showToast(`No se pudo enviar. Quedó guardada.`);
+      } finally {
+        state.cart = [];
+        writeJson(CART_KEY, state.cart);
+        writeJson(UNSENT_KEY, state.unsentSales);
+        writeJson(SENT_KEY, state.sentSales);
+        els.saleDiscountInput.value = "0";
+        els.notesInput.value = "";
+        els.finalizeButton.textContent = "Finalizar compra";
+        renderAll();
+      }
+    }
+
+    async function retryUnsent() {
+      if (!state.unsentSales.length) return;
+      els.retryUnsentButton.disabled = true;
+      els.retryUnsentButton.textContent = "Enviando...";
+      try {
+        const sales = [...state.unsentSales];
+        await uploadSalesToGithub(sales);
+        state.sentSales.push(...sales);
+        state.unsentSales = [];
+        writeJson(UNSENT_KEY, state.unsentSales);
+        writeJson(SENT_KEY, state.sentSales);
+        showToast("Ventas enviadas");
+      } catch (error) {
+        showToast(`No se pudo enviar: ${error.message}`);
+      } finally {
+        els.retryUnsentButton.textContent = "Reintentar envío";
+        renderAll();
+      }
+    }
+
+    function removeUnsentSale(index) {
+      if (!window.confirm("Eliminar esta venta no enviada?")) return;
+      state.unsentSales.splice(index, 1);
+      writeJson(UNSENT_KEY, state.unsentSales);
+      renderAll();
     }
 
     async function refreshStock(silent = false) {
@@ -562,85 +813,30 @@
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const stock = await response.json();
         if (!stock || !Array.isArray(stock.productos)) throw new Error("JSON invalido");
-        state.stock = stock;
-        writeJson(STOCK_KEY, stock);
+        state.stock = {
+          version: stock.version || 1,
+          generado_en: stock.generado_en || null,
+          ventas_mobile_importadas: stock.ventas_mobile_importadas || [],
+          productos: stock.productos
+        };
+        writeJson(STOCK_KEY, state.stock);
         els.syncStatus.textContent = "Stock online cargado";
-        renderStockStatus();
-        renderProducts();
+        renderAll();
         if (!silent) showToast("Stock actualizado");
       } catch {
-        state.stock = readJson(STOCK_KEY, { version: 1, generado_en: null, productos: [] });
+        state.stock = readJson(STOCK_KEY, state.stock);
         els.syncStatus.textContent = state.stock.generado_en ? "Usando ultimo stock guardado" : "Sin stock disponible";
-        renderStockStatus();
-        renderProducts();
+        renderAll();
         if (!silent) showToast("No se pudo actualizar stock");
       }
     }
 
-    function saveSale() {
-      const product = selectedProduct();
-      if (!product) {
-        showToast("Elegir producto");
-        return;
-      }
-
-      const quantity = Math.max(1, Number.parseInt(els.quantityInput.value || "1", 10));
-      const unitPrice = Math.max(0, Number(els.priceInput.value || 0));
-      const discount = Math.max(0, Number(els.discountInput.value || 0));
-      const gross = quantity * unitPrice;
-      const net = Math.max(0, gross - discount);
-
-      if (quantity > Number(product.stock_disponible || 0)) {
-        const ok = window.confirm("La cantidad supera el stock de la ultima foto. Guardar igual?");
-        if (!ok) return;
-      }
-
-      const sale = {
-        mobile_sale_uid: crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`,
-        sale_at: new Date().toISOString(),
-        sku: product.sku,
-        product_label: productLabel(product),
-        quantity,
-        unit_price: unitPrice,
-        discount_amount: discount,
-        gross_amount: gross,
-        net_amount: net,
-        payment_method: els.paymentSelect.value,
-        notes: els.notesInput.value.trim(),
-        stock_snapshot_generated_at: state.stock?.generado_en || null
-      };
-
-      state.pendingSales.push(sale);
-      writeJson(SALES_KEY, state.pendingSales);
-      els.quantityInput.value = "1";
-      els.discountInput.value = "0";
-      els.notesInput.value = "";
-      renderPendingSales();
-      showToast("Venta guardada");
-    }
-
-    function exportSales() {
-      if (state.pendingSales.length === 0) return;
-      const payload = buildSalesPayload();
-      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      const stamp = new Date().toISOString().slice(0, 19).replace(/[-:T]/g, "");
-      a.href = url;
-      a.download = `ventas_orilla_${stamp}.json`;
-      document.body.append(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
-      showToast("Archivo generado");
-    }
-
-    function buildSalesPayload() {
+    function buildSalesPayload(sales) {
       return {
-        version: 1,
+        version: 2,
         exported_at: new Date().toISOString(),
         source: "orilla_mobile_sales",
-        sales: state.pendingSales
+        sales
       };
     }
 
@@ -663,7 +859,6 @@
       els.githubRepoInput.value = config.repo || "quinteiromartin/orilla-ventas-inbox";
       els.githubBranchInput.value = config.branch || "main";
       els.githubFolderInput.value = config.folder || "ventas";
-      renderGithubStatus();
     }
 
     function currentGithubForm() {
@@ -673,17 +868,6 @@
         branch: els.githubBranchInput.value.trim() || "main",
         folder: els.githubFolderInput.value.trim().replace(/^\/+|\/+$/g, "") || "ventas"
       };
-    }
-
-    function renderGithubStatus() {
-      const config = readGithubConfig();
-      if (config.token && config.repo) {
-        els.githubStatus.textContent = "configurado";
-        els.githubStatus.className = "pill ok";
-      } else {
-        els.githubStatus.textContent = "sin configurar";
-        els.githubStatus.className = "pill warn";
-      }
     }
 
     function saveGithubConfig() {
@@ -707,100 +891,108 @@
         folder: els.githubFolderInput.value.trim() || "ventas"
       });
       loadGithubForm();
+      renderGithubStatus();
       showToast("Token quitado");
     }
 
     function utf8ToBase64(value) {
       const bytes = new TextEncoder().encode(value);
       let binary = "";
-      for (const byte of bytes) {
-        binary += String.fromCharCode(byte);
-      }
+      for (const byte of bytes) binary += String.fromCharCode(byte);
       return btoa(binary);
     }
 
-    async function sendSalesToGithub() {
-      if (state.pendingSales.length === 0) return;
+    async function uploadSalesToGithub(sales) {
       const config = readGithubConfig();
       if (!config.token || !config.repo) {
-        showToast("Configurar GitHub primero");
+        throw new Error("Configurar GitHub primero");
+      }
+      const payload = buildSalesPayload(sales);
+      const stamp = new Date().toISOString().slice(0, 19).replace(/[-:T]/g, "");
+      const random = crypto.randomUUID ? crypto.randomUUID().slice(0, 8) : String(Date.now()).slice(-8);
+      const path = `${config.folder || "ventas"}/ventas_orilla_${stamp}_${random}.json`;
+      const url = `https://api.github.com/repos/${config.repo}/contents/${encodeURIComponent(path).replaceAll("%2F", "/")}`;
+      const response = await fetch(url, {
+        method: "PUT",
+        headers: {
+          "Accept": "application/vnd.github+json",
+          "Authorization": `Bearer ${config.token}`,
+          "X-GitHub-Api-Version": "2022-11-28",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          message: `Agregar ventas mobile ${stamp}`,
+          content: utf8ToBase64(JSON.stringify(payload, null, 2)),
+          branch: config.branch || "main"
+        })
+      });
+      if (!response.ok) {
+        const details = await response.json().catch(() => ({}));
+        throw new Error(details.message || `GitHub HTTP ${response.status}`);
+      }
+    }
+
+    function exportBackup() {
+      const sales = [...state.unsentSales, ...state.sentSales];
+      if (!sales.length) {
+        showToast("No hay ventas locales para respaldar");
         return;
       }
-
-      els.sendGithubButton.disabled = true;
-      els.sendGithubButton.textContent = "Enviando...";
-      try {
-        const payload = buildSalesPayload();
-        const stamp = new Date().toISOString().slice(0, 19).replace(/[-:T]/g, "");
-        const random = crypto.randomUUID ? crypto.randomUUID().slice(0, 8) : String(Date.now()).slice(-8);
-        const path = `${config.folder || "ventas"}/ventas_orilla_${stamp}_${random}.json`;
-        const url = `https://api.github.com/repos/${config.repo}/contents/${encodeURIComponent(path).replaceAll("%2F", "/")}`;
-        const response = await fetch(url, {
-          method: "PUT",
-          headers: {
-            "Accept": "application/vnd.github+json",
-            "Authorization": `Bearer ${config.token}`,
-            "X-GitHub-Api-Version": "2022-11-28",
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            message: `Agregar ventas mobile ${stamp}`,
-            content: utf8ToBase64(JSON.stringify(payload, null, 2)),
-            branch: config.branch || "main"
-          })
-        });
-
-        if (!response.ok) {
-          const details = await response.json().catch(() => ({}));
-          throw new Error(details.message || `GitHub HTTP ${response.status}`);
-        }
-        showToast("Ventas enviadas a GitHub");
-      } catch (error) {
-        showToast(`No se pudo enviar: ${error.message}`);
-      } finally {
-        els.sendGithubButton.textContent = "Enviar";
-        renderPendingSales();
-      }
+      const payload = buildSalesPayload(sales);
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      const stamp = new Date().toISOString().slice(0, 19).replace(/[-:T]/g, "");
+      a.href = url;
+      a.download = `respaldo_ventas_orilla_${stamp}.json`;
+      document.body.append(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      showToast("Respaldo generado");
     }
 
-    function clearSales() {
-      if (state.pendingSales.length === 0) return;
-      const ok = window.confirm("Borrar ventas pendientes de este telefono?");
-      if (!ok) return;
-      state.pendingSales = [];
-      writeJson(SALES_KEY, state.pendingSales);
-      renderPendingSales();
-      showToast("Ventas borradas");
-    }
-
-    function escapeHtml(value) {
-      return String(value ?? "")
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+    function migrateLegacySales() {
+      const legacy = readJson(LEGACY_SALES_KEY, []);
+      if (!Array.isArray(legacy) || legacy.length === 0) return;
+      const converted = legacy.map((sale) => ({
+        mobile_sale_uid: sale.mobile_sale_uid,
+        sale_at: sale.sale_at,
+        payment_method: sale.payment_method,
+        notes: sale.notes || "",
+        gross_amount: Number(sale.gross_amount || 0),
+        discount_amount: Number(sale.discount_amount || 0),
+        net_amount: Number(sale.net_amount || 0),
+        stock_snapshot_generated_at: sale.stock_snapshot_generated_at || null,
+        items: saleItems(sale)
+      }));
+      state.unsentSales.push(...converted);
+      writeJson(UNSENT_KEY, state.unsentSales);
+      localStorage.removeItem(LEGACY_SALES_KEY);
     }
 
     function boot() {
-      state.stock = readJson(STOCK_KEY, { version: 1, generado_en: null, productos: [] });
-      state.pendingSales = readJson(SALES_KEY, []);
+      state.stock = readJson(STOCK_KEY, state.stock);
+      state.cart = readJson(CART_KEY, []);
+      state.unsentSales = readJson(UNSENT_KEY, []);
+      state.sentSales = readJson(SENT_KEY, []);
+      migrateLegacySales();
       loadGithubForm();
-      renderStockStatus();
-      renderProducts();
-      renderPendingSales();
+      renderAll();
       refreshStock(true);
     }
 
     els.searchInput.addEventListener("input", renderProducts);
     els.productSelect.addEventListener("change", syncPriceFromProduct);
-    els.saveSaleButton.addEventListener("click", saveSale);
+    els.addCartButton.addEventListener("click", addToCart);
     els.refreshButton.addEventListener("click", () => refreshStock(false));
-    els.sendGithubButton.addEventListener("click", sendSalesToGithub);
-    els.exportButton.addEventListener("click", exportSales);
-    els.clearButton.addEventListener("click", clearSales);
+    els.saleDiscountInput.addEventListener("input", renderCart);
+    els.finalizeButton.addEventListener("click", finalizeSale);
+    els.clearCartButton.addEventListener("click", clearCart);
+    els.retryUnsentButton.addEventListener("click", retryUnsent);
     els.saveGithubButton.addEventListener("click", saveGithubConfig);
     els.clearGithubButton.addEventListener("click", clearGithubConfig);
+    els.exportBackupButton.addEventListener("click", exportBackup);
 
     boot();
   </script>

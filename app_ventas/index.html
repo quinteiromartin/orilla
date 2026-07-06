@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1f2933">
+  <title>Orilla Ventas</title>
+  <link rel="manifest" href="./manifest.json">
+  <style>
+    :root {
+      --bg: #f7f2ea;
+      --surface: #ffffff;
+      --ink: #1f2933;
+      --muted: #65717d;
+      --line: #d8d1c7;
+      --accent: #c85f3d;
+      --accent-dark: #92462e;
+      --ok: #18735b;
+      --warn: #9a5b00;
+      --danger: #a63a3a;
+      --shadow: 0 10px 30px rgba(31, 41, 51, 0.10);
+      color-scheme: light;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .app {
+      max-width: 720px;
+      min-height: 100vh;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 14px 16px 10px;
+      background: rgba(247, 242, 234, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .status {
+      margin-top: 8px;
+      display: grid;
+      gap: 3px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    main {
+      padding: 16px;
+      display: grid;
+      gap: 14px;
+    }
+
+    section {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 17px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 11px;
+      background: #fffdf9;
+      color: var(--ink);
+      font-size: 16px;
+    }
+
+    textarea {
+      min-height: 76px;
+      resize: vertical;
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .actions button {
+      flex: 1;
+    }
+
+    button {
+      min-height: 44px;
+      border: 0;
+      border-radius: 8px;
+      padding: 10px 12px;
+      background: var(--ink);
+      color: white;
+      font-weight: 750;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background: #e9e1d7;
+      color: var(--ink);
+    }
+
+    button.accent {
+      background: var(--accent);
+    }
+
+    button.danger {
+      background: var(--danger);
+    }
+
+    button:disabled {
+      opacity: 0.48;
+      cursor: not-allowed;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #e9e1d7;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .pill.ok {
+      background: #dceee8;
+      color: var(--ok);
+    }
+
+    .pill.warn {
+      background: #fff0cf;
+      color: var(--warn);
+    }
+
+    .product-line,
+    .pending-line {
+      display: grid;
+      gap: 5px;
+      padding: 10px 0;
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    .product-line:first-child,
+    .pending-line:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .line-main {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .line-title {
+      font-weight: 750;
+    }
+
+    .line-meta {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .empty {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .toast {
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 20;
+      max-width: 688px;
+      margin: 0 auto;
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: var(--ink);
+      color: white;
+      box-shadow: var(--shadow);
+      font-weight: 700;
+      transform: translateY(120px);
+      opacity: 0;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 520px) {
+      .grid2 {
+        grid-template-columns: 1fr;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .actions button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="topbar">
+        <h1>Orilla Ventas</h1>
+        <span id="pendingPill" class="pill">0 pendientes</span>
+      </div>
+      <div class="status">
+        <span id="stockStatus">Stock: sin descargar</span>
+        <span id="syncStatus">Actualizando...</span>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <h2>Nueva venta</h2>
+        <label>
+          Buscar producto
+          <input id="searchInput" type="search" autocomplete="off" placeholder="Nombre, color, talle o SKU">
+        </label>
+        <label>
+          Producto
+          <select id="productSelect"></select>
+        </label>
+        <div class="grid2">
+          <label>
+            Cantidad
+            <input id="quantityInput" type="number" min="1" step="1" value="1">
+          </label>
+          <label>
+            Precio
+            <input id="priceInput" type="number" min="0" step="0.01" inputmode="decimal">
+          </label>
+        </div>
+        <div class="grid2">
+          <label>
+            Descuento
+            <input id="discountInput" type="number" min="0" step="0.01" inputmode="decimal" value="0">
+          </label>
+          <label>
+            Medio de cobro
+            <select id="paymentSelect">
+              <option>Efectivo</option>
+              <option>Transferencia</option>
+              <option>Mercado Pago</option>
+              <option>Tarjeta</option>
+              <option>Otro</option>
+            </select>
+          </label>
+        </div>
+        <label>
+          Nota
+          <textarea id="notesInput" placeholder="Opcional"></textarea>
+        </label>
+        <div class="actions">
+          <button id="saveSaleButton" class="accent" type="button">Guardar venta</button>
+          <button id="refreshButton" class="secondary" type="button">Actualizar stock</button>
+        </div>
+      </section>
+
+      <section>
+        <div class="line-main">
+          <h2>Productos disponibles</h2>
+          <span id="productCount" class="pill ok">0</span>
+        </div>
+        <div id="productList"></div>
+      </section>
+
+      <section>
+        <div class="line-main">
+          <h2>Ventas pendientes</h2>
+          <span id="pendingAmount" class="pill">$0</span>
+        </div>
+        <div id="pendingList"></div>
+        <div class="actions" style="margin-top: 12px;">
+          <button id="exportButton" type="button">Exportar</button>
+          <button id="clearButton" class="danger" type="button">Borrar exportadas</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const STOCK_URL = "../exports/foto_stock.json";
+    const STOCK_KEY = "orilla.latestStock";
+    const SALES_KEY = "orilla.pendingSales";
+
+    const state = {
+      stock: null,
+      filteredProducts: [],
+      pendingSales: []
+    };
+
+    const els = {
+      stockStatus: document.getElementById("stockStatus"),
+      syncStatus: document.getElementById("syncStatus"),
+      pendingPill: document.getElementById("pendingPill"),
+      searchInput: document.getElementById("searchInput"),
+      productSelect: document.getElementById("productSelect"),
+      quantityInput: document.getElementById("quantityInput"),
+      priceInput: document.getElementById("priceInput"),
+      discountInput: document.getElementById("discountInput"),
+      paymentSelect: document.getElementById("paymentSelect"),
+      notesInput: document.getElementById("notesInput"),
+      saveSaleButton: document.getElementById("saveSaleButton"),
+      refreshButton: document.getElementById("refreshButton"),
+      productCount: document.getElementById("productCount"),
+      productList: document.getElementById("productList"),
+      pendingAmount: document.getElementById("pendingAmount"),
+      pendingList: document.getElementById("pendingList"),
+      exportButton: document.getElementById("exportButton"),
+      clearButton: document.getElementById("clearButton"),
+      toast: document.getElementById("toast")
+    };
+
+    function money(value) {
+      return new Intl.NumberFormat("es-AR", {
+        style: "currency",
+        currency: "ARS",
+        maximumFractionDigits: 0
+      }).format(Number(value || 0));
+    }
+
+    function showToast(message) {
+      els.toast.textContent = message;
+      els.toast.classList.add("show");
+      window.clearTimeout(showToast.timer);
+      showToast.timer = window.setTimeout(() => els.toast.classList.remove("show"), 2600);
+    }
+
+    function readJson(key, fallback) {
+      try {
+        const raw = localStorage.getItem(key);
+        return raw ? JSON.parse(raw) : fallback;
+      } catch {
+        return fallback;
+      }
+    }
+
+    function writeJson(key, value) {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+
+    function productLabel(product) {
+      const bits = [product.producto, product.color, product.talle].filter(Boolean);
+      return `${bits.join(" / ")} (${product.sku})`;
+    }
+
+    function selectedProduct() {
+      const sku = els.productSelect.value;
+      return state.filteredProducts.find((product) => product.sku === sku)
+        || (state.stock?.productos || []).find((product) => product.sku === sku);
+    }
+
+    function renderProducts() {
+      const products = state.stock?.productos || [];
+      const query = els.searchInput.value.trim().toLowerCase();
+      state.filteredProducts = products.filter((product) => {
+        const haystack = [
+          product.sku,
+          product.producto,
+          product.color,
+          product.talle
+        ].filter(Boolean).join(" ").toLowerCase();
+        return !query || haystack.includes(query);
+      });
+
+      els.productSelect.innerHTML = "";
+      for (const product of state.filteredProducts) {
+        const option = document.createElement("option");
+        option.value = product.sku;
+        option.textContent = productLabel(product);
+        els.productSelect.append(option);
+      }
+
+      const enabled = state.filteredProducts.length > 0;
+      els.saveSaleButton.disabled = !enabled;
+      els.productSelect.disabled = !enabled;
+      els.productCount.textContent = `${products.length} activos`;
+
+      if (!enabled) {
+        els.productList.innerHTML = '<p class="empty">Sin productos disponibles.</p>';
+        els.priceInput.value = "";
+        return;
+      }
+
+      syncPriceFromProduct();
+
+      els.productList.innerHTML = state.filteredProducts.slice(0, 12).map((product) => `
+        <div class="product-line">
+          <div class="line-main">
+            <span class="line-title">${escapeHtml(productLabel(product))}</span>
+            <span class="pill ok">${Number(product.stock_disponible || 0)}</span>
+          </div>
+          <span class="line-meta">${money(product.precio_sugerido)} sugerido</span>
+        </div>
+      `).join("");
+    }
+
+    function renderPendingSales() {
+      const count = state.pendingSales.length;
+      const total = state.pendingSales.reduce((sum, sale) => sum + Number(sale.net_amount || 0), 0);
+      els.pendingPill.textContent = `${count} pendientes`;
+      els.pendingAmount.textContent = money(total);
+      els.exportButton.disabled = count === 0;
+      els.clearButton.disabled = count === 0;
+
+      if (count === 0) {
+        els.pendingList.innerHTML = '<p class="empty">No hay ventas pendientes.</p>';
+        return;
+      }
+
+      els.pendingList.innerHTML = state.pendingSales.slice().reverse().map((sale) => `
+        <div class="pending-line">
+          <div class="line-main">
+            <span class="line-title">${escapeHtml(sale.product_label)}</span>
+            <span class="pill">${money(sale.net_amount)}</span>
+          </div>
+          <span class="line-meta">${new Date(sale.sale_at).toLocaleString("es-AR")} · ${escapeHtml(sale.payment_method)} · ${sale.quantity} u.</span>
+        </div>
+      `).join("");
+    }
+
+    function renderStockStatus() {
+      const generated = state.stock?.generado_en;
+      if (!generated) {
+        els.stockStatus.textContent = "Stock: sin descargar";
+        return;
+      }
+      const date = new Date(generated);
+      const formatted = Number.isNaN(date.getTime()) ? generated : date.toLocaleString("es-AR");
+      els.stockStatus.textContent = `Stock actualizado: ${formatted}`;
+    }
+
+    function syncPriceFromProduct() {
+      const product = selectedProduct();
+      if (!product) return;
+      els.priceInput.value = Number(product.precio_sugerido || 0);
+      els.quantityInput.max = Math.max(1, Number(product.stock_disponible || 1));
+    }
+
+    async function refreshStock(silent = false) {
+      els.syncStatus.textContent = "Actualizando stock...";
+      try {
+        const response = await fetch(`${STOCK_URL}?t=${Date.now()}`, { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const stock = await response.json();
+        if (!stock || !Array.isArray(stock.productos)) throw new Error("JSON invalido");
+        state.stock = stock;
+        writeJson(STOCK_KEY, stock);
+        els.syncStatus.textContent = "Stock online cargado";
+        renderStockStatus();
+        renderProducts();
+        if (!silent) showToast("Stock actualizado");
+      } catch {
+        state.stock = readJson(STOCK_KEY, { version: 1, generado_en: null, productos: [] });
+        els.syncStatus.textContent = state.stock.generado_en ? "Usando ultimo stock guardado" : "Sin stock disponible";
+        renderStockStatus();
+        renderProducts();
+        if (!silent) showToast("No se pudo actualizar stock");
+      }
+    }
+
+    function saveSale() {
+      const product = selectedProduct();
+      if (!product) {
+        showToast("Elegir producto");
+        return;
+      }
+
+      const quantity = Math.max(1, Number.parseInt(els.quantityInput.value || "1", 10));
+      const unitPrice = Math.max(0, Number(els.priceInput.value || 0));
+      const discount = Math.max(0, Number(els.discountInput.value || 0));
+      const gross = quantity * unitPrice;
+      const net = Math.max(0, gross - discount);
+
+      if (quantity > Number(product.stock_disponible || 0)) {
+        const ok = window.confirm("La cantidad supera el stock de la ultima foto. Guardar igual?");
+        if (!ok) return;
+      }
+
+      const sale = {
+        mobile_sale_uid: crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`,
+        sale_at: new Date().toISOString(),
+        sku: product.sku,
+        product_label: productLabel(product),
+        quantity,
+        unit_price: unitPrice,
+        discount_amount: discount,
+        gross_amount: gross,
+        net_amount: net,
+        payment_method: els.paymentSelect.value,
+        notes: els.notesInput.value.trim(),
+        stock_snapshot_generated_at: state.stock?.generado_en || null
+      };
+
+      state.pendingSales.push(sale);
+      writeJson(SALES_KEY, state.pendingSales);
+      els.quantityInput.value = "1";
+      els.discountInput.value = "0";
+      els.notesInput.value = "";
+      renderPendingSales();
+      showToast("Venta guardada");
+    }
+
+    function exportSales() {
+      if (state.pendingSales.length === 0) return;
+      const payload = {
+        version: 1,
+        exported_at: new Date().toISOString(),
+        source: "orilla_mobile_sales",
+        sales: state.pendingSales
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      const stamp = new Date().toISOString().slice(0, 19).replace(/[-:T]/g, "");
+      a.href = url;
+      a.download = `ventas_orilla_${stamp}.json`;
+      document.body.append(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      showToast("Archivo generado");
+    }
+
+    function clearSales() {
+      if (state.pendingSales.length === 0) return;
+      const ok = window.confirm("Borrar ventas pendientes de este telefono?");
+      if (!ok) return;
+      state.pendingSales = [];
+      writeJson(SALES_KEY, state.pendingSales);
+      renderPendingSales();
+      showToast("Ventas borradas");
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function boot() {
+      state.stock = readJson(STOCK_KEY, { version: 1, generado_en: null, productos: [] });
+      state.pendingSales = readJson(SALES_KEY, []);
+      renderStockStatus();
+      renderProducts();
+      renderPendingSales();
+      refreshStock(true);
+    }
+
+    els.searchInput.addEventListener("input", renderProducts);
+    els.productSelect.addEventListener("change", syncPriceFromProduct);
+    els.saveSaleButton.addEventListener("click", saveSale);
+    els.refreshButton.addEventListener("click", () => refreshStock(false));
+    els.exportButton.addEventListener("click", exportSales);
+    els.clearButton.addEventListener("click", clearSales);
+
+    boot();
+  </script>
+</body>
+</html>
+

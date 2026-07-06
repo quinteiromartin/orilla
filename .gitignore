@@ -1,0 +1,12 @@
+data/*.duckdb
+data/*.duckdb.wal
+backups/*.duckdb
+imports/ventas_mobile/*.json
+imports/ventas_mobile/*.csv
+imports/stock_inicial/*.xlsx
+imports/stock_inicial/stock_inicial*.csv
+imports/stock_inicial/stock_inicial*.txt
+reports/*.html
+__pycache__/
+*.pyc
+vendor/

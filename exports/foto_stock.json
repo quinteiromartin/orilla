@@ -1,0 +1,736 @@
+{
+  "version": 1,
+  "generado_en": "2026-07-06T17:25:02-03:00",
+  "productos": [
+    {
+      "sku": "ORI-000061",
+      "producto": "Blusa Lino 100%",
+      "color": "gris",
+      "talle": "único",
+      "precio_sugerido": 68000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000003",
+      "producto": "Blusa dominó",
+      "color": "blanco y negro",
+      "talle": "único",
+      "precio_sugerido": 35000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000002",
+      "producto": "Body Night",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 38000.0,
+      "stock_fisico": 2,
+      "stock_reservado": 0,
+      "stock_disponible": 2
+    },
+    {
+      "sku": "ORI-000004",
+      "producto": "Camisa Blue Lino",
+      "color": "azul",
+      "talle": "único",
+      "precio_sugerido": 58000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000005",
+      "producto": "Camisa Bordeux Lino",
+      "color": "roja",
+      "talle": "único",
+      "precio_sugerido": 58000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000007",
+      "producto": "Camisa Cribe Lino",
+      "color": "celeste",
+      "talle": "único",
+      "precio_sugerido": 58000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000020",
+      "producto": "Camisa Ombu",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 30000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000019",
+      "producto": "Camisa Ombú",
+      "color": "verde",
+      "talle": "único",
+      "precio_sugerido": 30000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000022",
+      "producto": "Camisa Princesa",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 30000.0,
+      "stock_fisico": 2,
+      "stock_reservado": 0,
+      "stock_disponible": 2
+    },
+    {
+      "sku": "ORI-000017",
+      "producto": "Camisa gasa",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 15000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000018",
+      "producto": "Camisa gasa",
+      "color": "rosa",
+      "talle": "único",
+      "precio_sugerido": 150000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000021",
+      "producto": "Campera",
+      "color": "blanco",
+      "talle": "único",
+      "precio_sugerido": 48000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000040",
+      "producto": "Cardigan Andes",
+      "color": "marron y beige",
+      "talle": "único",
+      "precio_sugerido": 78000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000041",
+      "producto": "Cardigan Cozy",
+      "color": "verde petróleo",
+      "talle": "único",
+      "precio_sugerido": 45000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000063",
+      "producto": "Cardigan York",
+      "color": "verde",
+      "talle": "único",
+      "precio_sugerido": 68000.0,
+      "stock_fisico": 2,
+      "stock_reservado": 0,
+      "stock_disponible": 2
+    },
+    {
+      "sku": "ORI-000035",
+      "producto": "Cardigan guarda",
+      "color": "ladrillo",
+      "talle": "único",
+      "precio_sugerido": 68000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000039",
+      "producto": "Cardigan rústico",
+      "color": "verde jaspeado",
+      "talle": "único",
+      "precio_sugerido": 45000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000001",
+      "producto": "Chaleco Campo",
+      "color": "jean y cuero",
+      "talle": "único",
+      "precio_sugerido": 85000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000024",
+      "producto": "Chaleco Caracol Jean",
+      "color": "jean",
+      "talle": "único",
+      "precio_sugerido": 12000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000012",
+      "producto": "Chaleco Cuero",
+      "color": "camel",
+      "talle": "único",
+      "precio_sugerido": 150000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000032",
+      "producto": "Chaleco Londres",
+      "color": "mostaza y azul",
+      "talle": "único",
+      "precio_sugerido": 40000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000075",
+      "producto": "Chaleco gamulan",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 110000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000057",
+      "producto": "Jean Oxford",
+      "color": "azul",
+      "talle": "único",
+      "precio_sugerido": 70000.0,
+      "stock_fisico": 2,
+      "stock_reservado": 0,
+      "stock_disponible": 2
+    },
+    {
+      "sku": "ORI-000056",
+      "producto": "Jean recto",
+      "color": "azul",
+      "talle": "único",
+      "precio_sugerido": 20000.0,
+      "stock_fisico": 3,
+      "stock_reservado": 0,
+      "stock_disponible": 3
+    },
+    {
+      "sku": "ORI-000038",
+      "producto": "Media Polera Beige",
+      "color": "beige",
+      "talle": "único",
+      "precio_sugerido": 45000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000013",
+      "producto": "Musculosa Fresno",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 25000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000014",
+      "producto": "Musuclosa básica",
+      "color": "blanco",
+      "talle": "único",
+      "precio_sugerido": 15000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000059",
+      "producto": "Palazzo Fresno",
+      "color": "azul",
+      "talle": "único",
+      "precio_sugerido": 60000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000060",
+      "producto": "Palazzo Fresno",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 60000.0,
+      "stock_fisico": 2,
+      "stock_reservado": 0,
+      "stock_disponible": 2
+    },
+    {
+      "sku": "ORI-000072",
+      "producto": "Pantalón Luchi",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 25000.0,
+      "stock_fisico": 2,
+      "stock_reservado": 0,
+      "stock_disponible": 2
+    },
+    {
+      "sku": "ORI-000066",
+      "producto": "Pantalón Luli",
+      "color": "bordó",
+      "talle": "único",
+      "precio_sugerido": 58000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000067",
+      "producto": "Pantalón Luli",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 58000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000070",
+      "producto": "Pantalón Ombú",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 25000.0,
+      "stock_fisico": 2,
+      "stock_reservado": 0,
+      "stock_disponible": 2
+    },
+    {
+      "sku": "ORI-000071",
+      "producto": "Pantalón Pino Corderoy",
+      "color": "camel",
+      "talle": "único",
+      "precio_sugerido": 36000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000073",
+      "producto": "Pantalón Pino Corderoy",
+      "color": "rosa",
+      "talle": "único",
+      "precio_sugerido": 36000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000069",
+      "producto": "Pantalón Rock",
+      "color": "camel",
+      "talle": "único",
+      "precio_sugerido": 58000.0,
+      "stock_fisico": 4,
+      "stock_reservado": 0,
+      "stock_disponible": 4
+    },
+    {
+      "sku": "ORI-000068",
+      "producto": "Pantalón Rock",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 58000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000065",
+      "producto": "Pantalón Tequila",
+      "color": "negro y plateado",
+      "talle": "único",
+      "precio_sugerido": 45000.0,
+      "stock_fisico": 2,
+      "stock_reservado": 0,
+      "stock_disponible": 2
+    },
+    {
+      "sku": "ORI-000045",
+      "producto": "Polera Amarilla",
+      "color": "amarilla",
+      "talle": "único",
+      "precio_sugerido": 68000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000048",
+      "producto": "Polera Bremer",
+      "color": "azul",
+      "talle": "único",
+      "precio_sugerido": 68000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000047",
+      "producto": "Polera Bremer",
+      "color": "beige",
+      "talle": "único",
+      "precio_sugerido": 68000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000046",
+      "producto": "Polera Gris",
+      "color": "gris",
+      "talle": "único",
+      "precio_sugerido": 68000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000044",
+      "producto": "Polera Maiz",
+      "color": "maiz",
+      "talle": "único",
+      "precio_sugerido": 68000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000006",
+      "producto": "Polera Morley",
+      "color": "rosa",
+      "talle": "único",
+      "precio_sugerido": 25000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000023",
+      "producto": "Polera Rock",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 20000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000049",
+      "producto": "Polera algodón",
+      "color": "azul",
+      "talle": "único",
+      "precio_sugerido": 68000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000029",
+      "producto": "Poleron",
+      "color": "azul",
+      "talle": "único",
+      "precio_sugerido": 65000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000054",
+      "producto": "Pollera Gamuza",
+      "color": "azul",
+      "talle": "único",
+      "precio_sugerido": 160000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000052",
+      "producto": "Pollera Rock",
+      "color": "negra",
+      "talle": "único",
+      "precio_sugerido": 38000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000051",
+      "producto": "Pollera Rock",
+      "color": "verde",
+      "talle": "único",
+      "precio_sugerido": 38000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000053",
+      "producto": "Pollera cuero",
+      "color": "marrón",
+      "talle": "único",
+      "precio_sugerido": 160000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000011",
+      "producto": "Remera Fiore",
+      "color": "blanco",
+      "talle": "único",
+      "precio_sugerido": 30000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000010",
+      "producto": "Remera Fiore",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 30000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000016",
+      "producto": "Remera Night",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 35000.0,
+      "stock_fisico": 2,
+      "stock_reservado": 0,
+      "stock_disponible": 2
+    },
+    {
+      "sku": "ORI-000008",
+      "producto": "Remera Print",
+      "color": "animal print",
+      "talle": "único",
+      "precio_sugerido": 35000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000009",
+      "producto": "Remera noche",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 35000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000037",
+      "producto": "Sweater Bariloche naranja",
+      "color": "naranja",
+      "talle": "único",
+      "precio_sugerido": 58000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000030",
+      "producto": "Sweater Brillo",
+      "color": "beige",
+      "talle": "único",
+      "precio_sugerido": 68000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000064",
+      "producto": "Sweater Clara",
+      "color": "gris",
+      "talle": "único",
+      "precio_sugerido": 40000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000050",
+      "producto": "Sweater Flora",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 55000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000025",
+      "producto": "Sweater Londres",
+      "color": "gris",
+      "talle": "único",
+      "precio_sugerido": 65000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000062",
+      "producto": "Sweater Randy",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 35000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000033",
+      "producto": "Sweater Santorini",
+      "color": "azul y blanco",
+      "talle": "único",
+      "precio_sugerido": 35000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000027",
+      "producto": "Sweater Tandil",
+      "color": "mostaza",
+      "talle": "único",
+      "precio_sugerido": 58000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000026",
+      "producto": "Sweater Tandil",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 58000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000043",
+      "producto": "Sweater Violeta",
+      "color": "violeta y blanco",
+      "talle": "único",
+      "precio_sugerido": 35000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000034",
+      "producto": "Sweater básico",
+      "color": "celeste",
+      "talle": "único",
+      "precio_sugerido": 45000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000042",
+      "producto": "Sweater con cuello Pino",
+      "color": "verde marrón",
+      "talle": "único",
+      "precio_sugerido": 360000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000031",
+      "producto": "Sweater cuero",
+      "color": "blanco y negro",
+      "talle": "único",
+      "precio_sugerido": 40000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000028",
+      "producto": "Sweater lila",
+      "color": "rosa",
+      "talle": "único",
+      "precio_sugerido": 45000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000074",
+      "producto": "Tapado piel",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 120000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000055",
+      "producto": "Top Pradera",
+      "color": "marrón",
+      "talle": "único",
+      "precio_sugerido": 140000.0,
+      "stock_fisico": 2,
+      "stock_reservado": 0,
+      "stock_disponible": 2
+    },
+    {
+      "sku": "ORI-000036",
+      "producto": "weater Bariloche verde",
+      "color": "verde",
+      "talle": "único",
+      "precio_sugerido": 58000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    }
+  ]
+}

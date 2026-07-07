@@ -1,10 +1,18 @@
 {
   "version": 1,
-  "generado_en": "2026-07-07T18:34:42-03:00",
-  "ventas_mobile_importadas": [
-    "092bcf05-70b3-4835-b1ad-84264ec96706"
-  ],
+  "generado_en": "2026-07-07T18:41:12-03:00",
+  "ventas_mobile_importadas": [],
   "productos": [
+    {
+      "sku": "ORI-000061",
+      "producto": "Blusa Lino 100%",
+      "color": "gris",
+      "talle": "único",
+      "precio_sugerido": 68000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
     {
       "sku": "ORI-000003",
       "producto": "Blusa dominó",

@@ -128,6 +128,30 @@ quinteiromartin/orilla-ventas-inbox
 
 El flujo principal de la app es carrito -> finalizar compra -> envio a GitHub. La exportacion manual queda solo como respaldo tecnico.
 
+Para importar desde el repo privado, guardar un token local en:
+
+```text
+config/github_token.txt
+```
+
+Ese archivo no se sube a GitHub.
+
+Revisar ventas disponibles en GitHub:
+
+```powershell
+& "C:\Users\Martin\anaconda3\python.exe" scripts\import_ventas_github.py
+```
+
+Confirmar importacion:
+
+```powershell
+& "C:\Users\Martin\anaconda3\python.exe" scripts\import_ventas_github.py --confirmar
+& "C:\Users\Martin\anaconda3\python.exe" scripts\export_foto_stock.py
+git add exports\foto_stock.json
+git commit -m "Update stock after GitHub mobile sales"
+git push
+```
+
 ## Compras interactivas en Spyder
 
 Las compras de mercaderia se cargan desde Python interactivo, no desde CSV.

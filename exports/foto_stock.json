@@ -1,22 +1,27 @@
 {
   "version": 1,
-  "generado_en": "2026-07-06T21:15:37-03:00",
-  "ventas_mobile_importadas": [
-    "5d4f4192-e0ec-43b0-b988-ad420222728a",
-    "d534dc9d-d185-4398-a2c8-3d48778c8d0d",
-    "1a4f8f36-43bf-4af4-990c-09cfb2b73d51",
-    "34ef4d3d-1b6c-4f82-b65a-8b29df624078"
-  ],
+  "generado_en": "2026-07-07T18:16:08-03:00",
+  "ventas_mobile_importadas": [],
   "productos": [
+    {
+      "sku": "ORI-000061",
+      "producto": "Blusa Lino 100%",
+      "color": "gris",
+      "talle": "único",
+      "precio_sugerido": 68000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
     {
       "sku": "ORI-000003",
       "producto": "Blusa dominó",
       "color": "blanco y negro",
       "talle": "único",
       "precio_sugerido": 35000.0,
-      "stock_fisico": 1,
+      "stock_fisico": 2,
       "stock_reservado": 0,
-      "stock_disponible": 1
+      "stock_disponible": 2
     },
     {
       "sku": "ORI-000002",
@@ -87,6 +92,26 @@
       "stock_fisico": 2,
       "stock_reservado": 0,
       "stock_disponible": 2
+    },
+    {
+      "sku": "ORI-000017",
+      "producto": "Camisa gasa",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 15000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000018",
+      "producto": "Camisa gasa",
+      "color": "rosa",
+      "talle": "único",
+      "precio_sugerido": 150000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
     },
     {
       "sku": "ORI-000021",

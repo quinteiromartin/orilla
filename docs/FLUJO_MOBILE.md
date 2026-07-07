@@ -129,6 +129,28 @@ Cuando la app actualiza stock:
 - las elimina del descuento local
 - recalcula disponibilidad
 
+## Importar ventas desde GitHub
+
+En la computadora, guardar un token local en:
+
+```text
+config/github_token.txt
+```
+
+Luego revisar:
+
+```powershell
+& "C:\Users\Martin\anaconda3\python.exe" scripts\import_ventas_github.py
+```
+
+Si esta OK, importar:
+
+```powershell
+& "C:\Users\Martin\anaconda3\python.exe" scripts\import_ventas_github.py --confirmar
+```
+
+El script baja los JSON de `quinteiromartin/orilla-ventas-inbox/ventas`, revisa todos, e importa solo ventas no incorporadas. Si se corre dos veces, DuckDB omite duplicados por `mobile_sale_uid`.
+
 ## Regla operativa
 
 ## Respaldo tecnico

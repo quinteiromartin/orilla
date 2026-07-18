@@ -1,18 +1,17 @@
 {
   "version": 1,
-  "generado_en": "2026-07-07T18:41:12-03:00",
-  "ventas_mobile_importadas": [],
+  "generado_en": "2026-07-18T11:24:03-03:00",
+  "ventas_mobile_importadas": [
+    "5ba29b91-5510-49f5-b3c3-97a0ce5a096f",
+    "24f06829-11d6-4573-b96d-1fbbe30a64aa",
+    "5347f439-7e50-4c80-b012-2da150df0f36",
+    "e4764e34-118f-4f96-bd15-7ebb908004da",
+    "1936c075-5294-43c8-a396-7fc6fbc3d3ee",
+    "bfdbe62b-978b-4e85-941a-1c2734a54238",
+    "4e39c25a-ecb1-4b0f-ab71-88b90fec2b37",
+    "1b8194e6-d15e-4ea9-93a8-7ac93632db8f"
+  ],
   "productos": [
-    {
-      "sku": "ORI-000061",
-      "producto": "Blusa Lino 100%",
-      "color": "gris",
-      "talle": "único",
-      "precio_sugerido": 68000.0,
-      "stock_fisico": 1,
-      "stock_reservado": 0,
-      "stock_disponible": 1
-    },
     {
       "sku": "ORI-000003",
       "producto": "Blusa dominó",
@@ -64,36 +63,6 @@
       "stock_disponible": 1
     },
     {
-      "sku": "ORI-000020",
-      "producto": "Camisa Ombu",
-      "color": "negro",
-      "talle": "único",
-      "precio_sugerido": 30000.0,
-      "stock_fisico": 1,
-      "stock_reservado": 0,
-      "stock_disponible": 1
-    },
-    {
-      "sku": "ORI-000019",
-      "producto": "Camisa Ombú",
-      "color": "verde",
-      "talle": "único",
-      "precio_sugerido": 30000.0,
-      "stock_fisico": 1,
-      "stock_reservado": 0,
-      "stock_disponible": 1
-    },
-    {
-      "sku": "ORI-000022",
-      "producto": "Camisa Princesa",
-      "color": "negro",
-      "talle": "único",
-      "precio_sugerido": 30000.0,
-      "stock_fisico": 2,
-      "stock_reservado": 0,
-      "stock_disponible": 2
-    },
-    {
       "sku": "ORI-000017",
       "producto": "Camisa gasa",
       "color": "negro",
@@ -134,24 +103,14 @@
       "stock_disponible": 1
     },
     {
-      "sku": "ORI-000041",
-      "producto": "Cardigan Cozy",
-      "color": "verde petróleo",
-      "talle": "único",
-      "precio_sugerido": 45000.0,
-      "stock_fisico": 1,
-      "stock_reservado": 0,
-      "stock_disponible": 1
-    },
-    {
       "sku": "ORI-000063",
       "producto": "Cardigan York",
       "color": "verde",
       "talle": "único",
       "precio_sugerido": 68000.0,
-      "stock_fisico": 2,
+      "stock_fisico": 1,
       "stock_reservado": 0,
-      "stock_disponible": 2
+      "stock_disponible": 1
     },
     {
       "sku": "ORI-000035",
@@ -169,16 +128,6 @@
       "color": "verde jaspeado",
       "talle": "único",
       "precio_sugerido": 45000.0,
-      "stock_fisico": 1,
-      "stock_reservado": 0,
-      "stock_disponible": 1
-    },
-    {
-      "sku": "ORI-000001",
-      "producto": "Chaleco Campo",
-      "color": "jean y cuero",
-      "talle": "único",
-      "precio_sugerido": 85000.0,
       "stock_fisico": 1,
       "stock_reservado": 0,
       "stock_disponible": 1
@@ -214,24 +163,14 @@
       "stock_disponible": 1
     },
     {
-      "sku": "ORI-000075",
-      "producto": "Chaleco gamulan",
-      "color": "negro",
-      "talle": "único",
-      "precio_sugerido": 110000.0,
-      "stock_fisico": 1,
-      "stock_reservado": 0,
-      "stock_disponible": 1
-    },
-    {
       "sku": "ORI-000057",
       "producto": "Jean Oxford",
       "color": "azul",
       "talle": "único",
       "precio_sugerido": 70000.0,
-      "stock_fisico": 2,
+      "stock_fisico": 1,
       "stock_reservado": 0,
-      "stock_disponible": 2
+      "stock_disponible": 1
     },
     {
       "sku": "ORI-000056",
@@ -274,49 +213,19 @@
       "stock_disponible": 1
     },
     {
-      "sku": "ORI-000059",
-      "producto": "Palazzo Fresno",
-      "color": "azul",
-      "talle": "único",
-      "precio_sugerido": 60000.0,
-      "stock_fisico": 1,
-      "stock_reservado": 0,
-      "stock_disponible": 1
-    },
-    {
-      "sku": "ORI-000060",
-      "producto": "Palazzo Fresno",
-      "color": "negro",
-      "talle": "único",
-      "precio_sugerido": 60000.0,
-      "stock_fisico": 2,
-      "stock_reservado": 0,
-      "stock_disponible": 2
-    },
-    {
       "sku": "ORI-000072",
       "producto": "Pantalón Luchi",
       "color": "negro",
       "talle": "único",
       "precio_sugerido": 25000.0,
-      "stock_fisico": 2,
-      "stock_reservado": 0,
-      "stock_disponible": 2
-    },
-    {
-      "sku": "ORI-000066",
-      "producto": "Pantalón Luli",
-      "color": "bordó",
-      "talle": "único",
-      "precio_sugerido": 58000.0,
       "stock_fisico": 1,
       "stock_reservado": 0,
       "stock_disponible": 1
     },
     {
-      "sku": "ORI-000067",
+      "sku": "ORI-000066",
       "producto": "Pantalón Luli",
-      "color": "negro",
+      "color": "bordó",
       "talle": "único",
       "precio_sugerido": 58000.0,
       "stock_fisico": 1,
@@ -332,16 +241,6 @@
       "stock_fisico": 2,
       "stock_reservado": 0,
       "stock_disponible": 2
-    },
-    {
-      "sku": "ORI-000071",
-      "producto": "Pantalón Pino Corderoy",
-      "color": "camel",
-      "talle": "único",
-      "precio_sugerido": 36000.0,
-      "stock_fisico": 1,
-      "stock_reservado": 0,
-      "stock_disponible": 1
     },
     {
       "sku": "ORI-000073",
@@ -374,16 +273,6 @@
       "stock_disponible": 1
     },
     {
-      "sku": "ORI-000065",
-      "producto": "Pantalón Tequila",
-      "color": "negro y plateado",
-      "talle": "único",
-      "precio_sugerido": 45000.0,
-      "stock_fisico": 2,
-      "stock_reservado": 0,
-      "stock_disponible": 2
-    },
-    {
       "sku": "ORI-000045",
       "producto": "Polera Amarilla",
       "color": "amarilla",
@@ -407,16 +296,6 @@
       "sku": "ORI-000047",
       "producto": "Polera Bremer",
       "color": "beige",
-      "talle": "único",
-      "precio_sugerido": 68000.0,
-      "stock_fisico": 1,
-      "stock_reservado": 0,
-      "stock_disponible": 1
-    },
-    {
-      "sku": "ORI-000046",
-      "producto": "Polera Gris",
-      "color": "gris",
       "talle": "único",
       "precio_sugerido": 68000.0,
       "stock_fisico": 1,
@@ -484,16 +363,6 @@
       "stock_disponible": 1
     },
     {
-      "sku": "ORI-000052",
-      "producto": "Pollera Rock",
-      "color": "negra",
-      "talle": "único",
-      "precio_sugerido": 38000.0,
-      "stock_fisico": 1,
-      "stock_reservado": 0,
-      "stock_disponible": 1
-    },
-    {
       "sku": "ORI-000051",
       "producto": "Pollera Rock",
       "color": "verde",
@@ -532,16 +401,6 @@
       "stock_fisico": 1,
       "stock_reservado": 0,
       "stock_disponible": 1
-    },
-    {
-      "sku": "ORI-000016",
-      "producto": "Remera Night",
-      "color": "negro",
-      "talle": "único",
-      "precio_sugerido": 35000.0,
-      "stock_fisico": 2,
-      "stock_reservado": 0,
-      "stock_disponible": 2
     },
     {
       "sku": "ORI-000008",
@@ -584,26 +443,6 @@
       "stock_disponible": 1
     },
     {
-      "sku": "ORI-000064",
-      "producto": "Sweater Clara",
-      "color": "gris",
-      "talle": "único",
-      "precio_sugerido": 40000.0,
-      "stock_fisico": 1,
-      "stock_reservado": 0,
-      "stock_disponible": 1
-    },
-    {
-      "sku": "ORI-000050",
-      "producto": "Sweater Flora",
-      "color": "negro",
-      "talle": "único",
-      "precio_sugerido": 55000.0,
-      "stock_fisico": 1,
-      "stock_reservado": 0,
-      "stock_disponible": 1
-    },
-    {
       "sku": "ORI-000025",
       "producto": "Sweater Londres",
       "color": "gris",
@@ -629,26 +468,6 @@
       "color": "azul y blanco",
       "talle": "único",
       "precio_sugerido": 35000.0,
-      "stock_fisico": 1,
-      "stock_reservado": 0,
-      "stock_disponible": 1
-    },
-    {
-      "sku": "ORI-000027",
-      "producto": "Sweater Tandil",
-      "color": "mostaza",
-      "talle": "único",
-      "precio_sugerido": 58000.0,
-      "stock_fisico": 1,
-      "stock_reservado": 0,
-      "stock_disponible": 1
-    },
-    {
-      "sku": "ORI-000026",
-      "producto": "Sweater Tandil",
-      "color": "negro",
-      "talle": "único",
-      "precio_sugerido": 58000.0,
       "stock_fisico": 1,
       "stock_reservado": 0,
       "stock_disponible": 1

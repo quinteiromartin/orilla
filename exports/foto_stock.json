@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generado_en": "2026-07-18T11:24:03-03:00",
+  "generado_en": "2026-07-18T12:51:30-03:00",
   "ventas_mobile_importadas": [
     "5ba29b91-5510-49f5-b3c3-97a0ce5a096f",
     "24f06829-11d6-4573-b96d-1fbbe30a64aa",
@@ -163,6 +163,16 @@
       "stock_disponible": 1
     },
     {
+      "sku": "ORI-000089",
+      "producto": "Chaleco Niza",
+      "color": "sd",
+      "talle": "único",
+      "precio_sugerido": 45000.0,
+      "stock_fisico": 2,
+      "stock_reservado": 0,
+      "stock_disponible": 2
+    },
+    {
       "sku": "ORI-000057",
       "producto": "Jean Oxford",
       "color": "azul",
@@ -193,6 +203,16 @@
       "stock_disponible": 1
     },
     {
+      "sku": "ORI-000086",
+      "producto": "Musculosa Barein",
+      "color": "sd",
+      "talle": "único",
+      "precio_sugerido": 28000.0,
+      "stock_fisico": 2,
+      "stock_reservado": 0,
+      "stock_disponible": 2
+    },
+    {
       "sku": "ORI-000013",
       "producto": "Musculosa Fresno",
       "color": "negro",
@@ -203,6 +223,16 @@
       "stock_disponible": 1
     },
     {
+      "sku": "ORI-000087",
+      "producto": "Musculosa Milan",
+      "color": "sd",
+      "talle": "único",
+      "precio_sugerido": 45000.0,
+      "stock_fisico": 3,
+      "stock_reservado": 0,
+      "stock_disponible": 3
+    },
+    {
       "sku": "ORI-000014",
       "producto": "Musuclosa básica",
       "color": "blanco",
@@ -211,6 +241,36 @@
       "stock_fisico": 1,
       "stock_reservado": 0,
       "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000088",
+      "producto": "Palazzo Fresno",
+      "color": "blanco",
+      "talle": "único",
+      "precio_sugerido": 60000.0,
+      "stock_fisico": 2,
+      "stock_reservado": 0,
+      "stock_disponible": 2
+    },
+    {
+      "sku": "ORI-000085",
+      "producto": "Palazzo Fresno",
+      "color": "chocolate",
+      "talle": "único",
+      "precio_sugerido": 60000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000060",
+      "producto": "Palazzo Fresno",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 60000.0,
+      "stock_fisico": 5,
+      "stock_reservado": 0,
+      "stock_disponible": 5
     },
     {
       "sku": "ORI-000072",
@@ -271,6 +331,36 @@
       "stock_fisico": 1,
       "stock_reservado": 0,
       "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000078",
+      "producto": "Pantalón Tequila",
+      "color": "Negro",
+      "talle": "S",
+      "precio_sugerido": 45000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000077",
+      "producto": "Pantalón Tequila",
+      "color": "Negro",
+      "talle": "m",
+      "precio_sugerido": 45000.0,
+      "stock_fisico": 3,
+      "stock_reservado": 0,
+      "stock_disponible": 3
+    },
+    {
+      "sku": "ORI-000079",
+      "producto": "Pantalón Tequila",
+      "color": "negro",
+      "talle": "xl",
+      "precio_sugerido": 45000.0,
+      "stock_fisico": 2,
+      "stock_reservado": 0,
+      "stock_disponible": 2
     },
     {
       "sku": "ORI-000045",
@@ -383,6 +473,46 @@
       "stock_disponible": 1
     },
     {
+      "sku": "ORI-000083",
+      "producto": "Remera Bunny",
+      "color": "Animal Print",
+      "talle": "único",
+      "precio_sugerido": 18000.0,
+      "stock_fisico": 3,
+      "stock_reservado": 0,
+      "stock_disponible": 3
+    },
+    {
+      "sku": "ORI-000080",
+      "producto": "Remera Básica Manga Larga",
+      "color": "blanco",
+      "talle": "u",
+      "precio_sugerido": 18000.0,
+      "stock_fisico": 2,
+      "stock_reservado": 0,
+      "stock_disponible": 2
+    },
+    {
+      "sku": "ORI-000081",
+      "producto": "Remera Básica manga corta",
+      "color": "Beige",
+      "talle": "único",
+      "precio_sugerido": 18000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000082",
+      "producto": "Remera Básica manga corta",
+      "color": "blanco",
+      "talle": "único",
+      "precio_sugerido": 18000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
       "sku": "ORI-000011",
       "producto": "Remera Fiore",
       "color": "blanco",
@@ -438,6 +568,26 @@
       "color": "beige",
       "talle": "único",
       "precio_sugerido": 68000.0,
+      "stock_fisico": 1,
+      "stock_reservado": 0,
+      "stock_disponible": 1
+    },
+    {
+      "sku": "ORI-000084",
+      "producto": "Sweater Celina",
+      "color": "negro",
+      "talle": "único",
+      "precio_sugerido": 40000.0,
+      "stock_fisico": 2,
+      "stock_reservado": 0,
+      "stock_disponible": 2
+    },
+    {
+      "sku": "ORI-000076",
+      "producto": "Sweater Coral",
+      "color": "Único",
+      "talle": "U",
+      "precio_sugerido": 45000.0,
       "stock_fisico": 1,
       "stock_reservado": 0,
       "stock_disponible": 1
